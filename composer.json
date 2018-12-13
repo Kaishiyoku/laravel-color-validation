@@ -39,7 +39,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Kaishiyoku\\Validator\\Color\\ServiceProvider"
+                "Kaishiyoku\\Validation\\Color\\ServiceProvider"
             ]
         }
     }
