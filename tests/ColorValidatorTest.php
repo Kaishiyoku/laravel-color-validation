@@ -57,15 +57,4 @@ class ColorValidatorTest extends TestCase
         $this->assertEquals(false, $this->validate('#37FFFF', 'color_rgba'));
         $this->assertEquals(false, $this->validate('fakecolor!', 'color_rgba'));
     }
-
-    public function testValidatorColorAsKeyword()
-    {
-        $this->assertEquals(true,  $this->validate('white', 'color_keyword'));
-        $this->assertEquals(false, $this->validate('rgba(4,200,100,0)', 'color_keyword'));
-        $this->assertEquals(false, $this->validate('rgb(4,200,100)', 'color_keyword'));
-        $this->assertEquals(false, $this->validate('#37F', 'color_keyword'));
-        $this->assertEquals(false, $this->validate('#37FFFF', 'color_keyword'));
-        $this->assertEquals(false, $this->validate('fakecolor!', 'color_keyword'));
-    }
-
 }

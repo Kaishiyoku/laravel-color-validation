@@ -43,10 +43,6 @@ class ServiceProvider extends IlluminateServiceProvider
             $factory->extend('color_rgba', function ($attribute, $value, $parameters, $validator) use ($colorValidator) {
                 return $colorValidator->isColorAsRGBA($value);
             });
-
-            $factory->extend('color_keyword', function ($attribute, $value, $parameters, $validator) use ($colorValidator) {
-                return $colorValidator->isColorAsKeyword($value);
-            });
         });
     }
 }
