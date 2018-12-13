@@ -3,6 +3,7 @@
 namespace Kaishiyoku\Validation\Color;
 
 use Illuminate\Support\ServiceProvider as IlluminateServiceProvider;
+use Illuminate\Validation\Factory;
 use Kaishiyoku\Validation\Color\Validator as ColorValidator;
 
 class ServiceProvider extends IlluminateServiceProvider
@@ -14,7 +15,7 @@ class ServiceProvider extends IlluminateServiceProvider
      */
     public function boot()
     {
-
+        $this->loadTranslationsFrom(__DIR__.'/../../../../resources/lang/', 'kaishiyoku');
     }
 
     /**
@@ -24,25 +25,19 @@ class ServiceProvider extends IlluminateServiceProvider
      */
     public function register()
     {
-        $this->app->resolving('validator', function ($factory, $app) {
+        $this->app->resolving('validator', function (Factory $factory, $app) {
 
             $colorValidator = new ColorValidator();
 
-            $factory->extend('color', function ($attribute, $value, $parameters, $validator) use ($colorValidator) {
-                return $colorValidator->isColor($value);
-            });
+            foreach (ColorValidator::VALIDATION_NAMES as $validationName) {
+                $factory->extend($validationName, function ($attributes, $value, $parameters, $validator) use ($colorValidator, $validationName) {
+                    return $colorValidator->callValidationFor($validationName, $value);
+                });
 
-            $factory->extend('color_hex', function ($attribute, $value, $parameters, $validator) use ($colorValidator) {
-                return $colorValidator->isColorAsHex($value);
-            });
-
-            $factory->extend('color_rgb', function ($attribute, $value, $parameters, $validator) use ($colorValidator) {
-                return $colorValidator->isColorAsRGB($value);
-            });
-
-            $factory->extend('color_rgba', function ($attribute, $value, $parameters, $validator) use ($colorValidator) {
-                return $colorValidator->isColorAsRGBA($value);
-            });
+                $factory->replacer($validationName, function ($message, $attribute, $rule, $parameters) use ($factory) {
+                    return $factory->getTranslator()->trans('kaishiyoku::validation.'.$rule, compact('attribute'));
+                });
+            }
         });
     }
 }
