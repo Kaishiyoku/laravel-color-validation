@@ -3,16 +3,9 @@
 namespace Kaishiyoku\Validation\Color\Tests;
 
 use Validator;
-use Kaishiyoku\Validation\Color\Validator as ColorValidator;
 
 class ColorValidatorTest extends TestCase
 {
-    public function testItCreatesAnInstanceOfSms()
-    {
-        $obj = new ColorValidator();
-        $this->assertInstanceOf(ColorValidator::class, $obj);
-    }
-
     protected function validate($color, $rule = 'color')
     {
         return !(Validator::make(['test' => $color], ['test' => $rule])->fails());

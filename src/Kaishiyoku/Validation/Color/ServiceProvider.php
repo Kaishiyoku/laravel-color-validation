@@ -8,6 +8,8 @@ use Kaishiyoku\Validation\Color\Validator as ColorValidator;
 
 class ServiceProvider extends IlluminateServiceProvider
 {
+    private const NAMESPACE = 'colorValidation';
+
     /**
      * Bootstrap the application events.
      *
@@ -15,7 +17,7 @@ class ServiceProvider extends IlluminateServiceProvider
      */
     public function boot()
     {
-        $this->loadTranslationsFrom(__DIR__.'/../../../../resources/lang/', 'kaishiyoku');
+        $this->loadTranslationsFrom(__DIR__.'/../../../../resources/lang/', self::NAMESPACE);
     }
 
     /**
@@ -26,18 +28,11 @@ class ServiceProvider extends IlluminateServiceProvider
     public function register()
     {
         $this->app->resolving('validator', function (Factory $factory, $app) {
+            $factory->resolver(function ($translator, $data, $rules, $messages) {
+                $messages += trans(self::NAMESPACE . '::validation');
 
-            $colorValidator = new ColorValidator();
-
-            foreach (ColorValidator::VALIDATION_NAMES as $validationName) {
-                $factory->extend($validationName, function ($attributes, $value, $parameters, $validator) use ($colorValidator, $validationName) {
-                    return $colorValidator->callValidationFor($validationName, $value);
-                });
-
-                $factory->replacer($validationName, function ($message, $attribute, $rule, $parameters) use ($factory) {
-                    return $factory->getTranslator()->trans('kaishiyoku::validation.'.$rule, compact('attribute'));
-                });
-            }
+                return new ColorValidator($translator, $data, $rules, $messages);
+            });
         });
     }
 }
