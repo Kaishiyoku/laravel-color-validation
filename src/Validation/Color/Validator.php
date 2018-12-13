@@ -1,6 +1,6 @@
 <?php
 
-namespace Kaishiyoku\Validator\Color;
+namespace Kaishiyoku\Validation\Color;
 
 class Validator
 {

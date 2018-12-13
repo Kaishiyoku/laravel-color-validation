@@ -1,9 +1,9 @@
 <?php
 
-namespace Kaishiyoku\Validator\Color\Tests;
+namespace Kaishiyoku\Validation\Color\Tests;
 
 use Validator;
-use Kaishiyoku\Validator\Color\Validator as ColorValidator;
+use Kaishiyoku\Validation\Color\Validator as ColorValidator;
 
 class ColorValidatorTest extends TestCase
 {

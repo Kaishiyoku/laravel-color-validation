@@ -16,12 +16,12 @@
     ],
     "autoload":{
         "psr-4":{
-            "Kaishiyoku\\Validator\\Color\\":"src/"
+            "Kaishiyoku\\":"src/Kaishiyoku"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Kaishiyoku\\Validator\\Color\\Tests\\": "tests/"
+            "Kaishiyoku\\Validation\\Color\\Tests\\": "tests/"
         }
     },
     "minimum-stability": "stable",  
@@ -35,5 +35,12 @@
         "orchestra/testbench": "^3.2"
     },
     "suggest": {
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Kaishiyoku\\Validator\\Color\\ServiceProvider"
+            ]
+        }
     }
 }

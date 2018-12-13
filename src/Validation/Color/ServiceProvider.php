@@ -1,9 +1,9 @@
 <?php
 
-namespace Kaishiyoku\Validator\Color;
+namespace Kaishiyoku\Validation\Color;
 
 use Illuminate\Support\ServiceProvider as IlluminateServiceProvider;
-use Kaishiyoku\Validator\Color\Validator as ColorValidator;
+use Kaishiyoku\Validation\Color\Validator as ColorValidator;
 
 class ServiceProvider extends IlluminateServiceProvider
 {

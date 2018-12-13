@@ -1,6 +1,6 @@
 <?php
 
-namespace Kaishiyoku\Validator\Color\Tests;
+namespace Kaishiyoku\Validation\Color\Tests;
 
 use Orchestra\Testbench\TestCase as Orchestra;
 
