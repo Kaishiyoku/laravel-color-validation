@@ -20,7 +20,7 @@ class ColorValidatorTest extends TestCase
 
     public function testValidatorColor()
     {
-        $this->assertEquals(true,  $this->validate('white', 'color'));
+        $this->assertEquals(false,  $this->validate('white', 'color'));
         $this->assertEquals(true,  $this->validate('rgba(4,200,100,0)', 'color'));
         $this->assertEquals(true,  $this->validate('rgb(4,200,100)', 'color'));
         $this->assertEquals(true,  $this->validate('#37F', 'color'));

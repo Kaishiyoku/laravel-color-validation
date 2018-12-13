@@ -24,7 +24,7 @@ class TestCase extends Orchestra
      */
     protected function getPackageProviders($app)
     {
-        return ['Kaishiyoku\Validator\Color\ServiceProvider'];
+        return ['Kaishiyoku\Validation\Color\ServiceProvider'];
     }
 
     /**
