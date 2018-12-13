@@ -1,35 +1,34 @@
 {
-    "name": "tylercd100/laravel-validator-color",
-    "description": "Validate that a certain value is a valid CSS color string in Laravel 5",
+    "name": "kaishiyoku/laravel-color-validation",
+    "description": "Laravel 5 color validation rules",
     "keywords": [
         "laravel",
         "validator",
-        "color",
-        "tylercd100"
+        "color"
     ],
-    "homepage": "https://github.com/tylercd100/laravel-validator-color",
+    "homepage": "https://github.com/Kaishiyoku/laravel-color-validation",
     "license": "MIT",  
     "authors": [
         {
-            "name": "Tyler Arbon",
-            "email": "tylercd100@gmail.com"
+            "name": "Kaishiyoku",
+            "email": "dev@andreas-wiedel.de"
         }
     ],
     "autoload":{
         "psr-4":{
-            "Tylercd100\\Validator\\Color\\":"src/"
+            "Kaishiyoku\\Validator\\Color\\":"src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Tylercd100\\Validator\\Color\\Tests\\": "tests/"
+            "Kaishiyoku\\Validator\\Color\\Tests\\": "tests/"
         }
     },
     "minimum-stability": "stable",  
     "require": {
-        "illuminate/validation": "^5.0",
-        "illuminate/support": "^5.0",
-        "php": "^5.5.9|^7.0"
+        "illuminate/validation": "^5.4",
+        "illuminate/support": "^5.4",
+        "php": ">=7.1.3"
     },
     "require-dev": {
         "phpunit/phpunit": "^4.8|^5.0",

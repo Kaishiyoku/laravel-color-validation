@@ -1,6 +1,6 @@
 <?php
 
-namespace Tylercd100\Validator\Color\Tests;
+namespace Kaishiyoku\Validator\Color\Tests;
 
 use Orchestra\Testbench\TestCase as Orchestra;
 
@@ -24,7 +24,7 @@ class TestCase extends Orchestra
      */
     protected function getPackageProviders($app)
     {
-        return ['Tylercd100\Validator\Color\ServiceProvider'];
+        return ['Kaishiyoku\Validator\Color\ServiceProvider'];
     }
 
     /**

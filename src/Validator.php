@@ -1,6 +1,6 @@
 <?php
 
-namespace Tylercd100\Validator\Color;
+namespace Kaishiyoku\Validator\Color;
 
 class Validator
 {
