@@ -30,7 +30,7 @@ Validator::make(['test' => '#333'], ['test' => 'color_hex']);
 ```
 ## Using other locales
 
-By default English and German locales can be used. If you're using a different locale you will have to add a `validation.php` file and a custom folder named after the locale code (e.g. "ja" for Japanese) to the `/resources/vendor/color_validation/` folder.
+By default English and German locales can be used. If you're using a different locale you will have to add a `validation.php` file and a custom folder named after the locale code (e.g. `ja` for Japanese) to the `/resources/lang/vendor/color_validation/` folder.
 
 Example folder structure:
 
@@ -42,7 +42,7 @@ Example folder structure:
                 └── color_validation
                     ├── de
                     ├── en
-                    └── japanese
+                    └── ja
 ```
 
 
