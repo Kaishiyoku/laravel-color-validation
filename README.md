@@ -1,8 +1,19 @@
-# Validate colors with Laravel 5
+Table of contents
+=================
+* [About](#about)
+* [Installaion](#installation)
+* [Usage](#usage)
+* [Using other locales](#using_other_locales)
+* [Adjusting existing locales](#adjusting_existing_locales)
+* [License](#license)
+* [Author](#author)
 
-This package will let you validate that a certain value is a valid CSS color string.
+About
+=====
+**This package will let you validate that a certain value is a valid CSS color string using Laravel 5.**
 
-## Installation
+Installation
+============
 
 Install via [composer](https://getcomposer.org/) - In the terminal:
 ```bash
@@ -13,7 +24,8 @@ If you're not Using Laravel 5.7+ and don't have package auto-discovery add the f
 Kaishiyoku\Validation\Color\ServiceProvider::class,
 ```
 
-## Usage
+Usage
+=====
 
 ```php
 // Test any color type
@@ -28,7 +40,8 @@ Validator::make(['test' => 'rgba(0, 200, 150, 0.52)'], ['test' => 'color_rgba'])
 // Test for hex 
 Validator::make(['test' => '#333'], ['test' => 'color_hex']);
 ```
-## Using other locales
+Using other locales
+===================
 
 By default English and German locales can be used. If you're using a different locale you will have to add a `validation.php` file and a custom folder named after the locale code (e.g. `ja` for Japanese) to the `/resources/lang/vendor/color_validation/` folder.
 
@@ -46,10 +59,20 @@ Example folder structure:
 ```
 
 
-## Adjusting existing locales
+Adjusting existing locales
+==========================
 
 If you want to change any of the existing translations, you can publish the locale files with:
 
 ```bash
 php artisan vendor:publish --provider="Kaishiyoku\Validation\Color\ServiceProvider"
 ```
+
+License
+=======
+MIT (https://github.com/Kaishiyoku/laravel-color-validation/blob/master/LICENSE)
+
+Author
+======
+Twitter: [@kaishiyoku](https://twitter.com/kaishiyoku)  
+Website: www.andreas-wiedel.de  
