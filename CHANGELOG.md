@@ -3,6 +3,10 @@
 ## [1.1.1](https://github.com/kaishiyoku/laravel-color-validation/tree/1.1.1) (2019-07-09)
 [Full Changelog](https://github.com/kaishiyoku/laravel-color-validation/compare/1.1.0...1.1.1)
 
+**Fixed bugs:**
+
+- Error when using an unsupported locale [\#2](https://github.com/Kaishiyoku/laravel-color-validation/issues/2)
+
 ## [1.1.0](https://github.com/kaishiyoku/laravel-color-validation/tree/1.1.0) (2018-12-13)
 [Full Changelog](https://github.com/kaishiyoku/laravel-color-validation/compare/1.0.0...1.1.0)
 
