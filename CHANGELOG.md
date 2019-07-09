@@ -1,5 +1,8 @@
 # Change Log
 
+## [1.1.1](https://github.com/kaishiyoku/laravel-color-validation/tree/1.1.1) (2019-07-09)
+[Full Changelog](https://github.com/kaishiyoku/laravel-color-validation/compare/1.1.0...1.1.1)
+
 ## [1.1.0](https://github.com/kaishiyoku/laravel-color-validation/tree/1.1.0) (2018-12-13)
 [Full Changelog](https://github.com/kaishiyoku/laravel-color-validation/compare/1.0.0...1.1.0)
 
