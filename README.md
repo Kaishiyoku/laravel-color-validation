@@ -3,8 +3,8 @@ Table of contents
 * [About](#about)
 * [Installaion](#installation)
 * [Usage](#usage)
-* [Using other locales](#using_other_locales)
-* [Adjusting existing locales](#adjusting_existing_locales)
+* [Using other locales](#using-other-locales)
+* [Adjusting existing locales](#adjusting-existing-locales)
 * [License](#license)
 * [Author](#author)
 
