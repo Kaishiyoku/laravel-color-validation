@@ -2,8 +2,6 @@
 
 namespace Kaishiyoku\Validation\Color;
 
-use Illuminate\Support\Arr;
-use Illuminate\Support\Str;
 use Illuminate\Validation\Validator as BaseValidator;
 
 class Validator extends BaseValidator
