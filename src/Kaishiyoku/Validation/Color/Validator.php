@@ -4,11 +4,14 @@ namespace Kaishiyoku\Validation\Color;
 
 use Illuminate\Support\Str;
 use Illuminate\Validation\Validator as BaseValidator;
+use Spatie\Regex\Regex;
 
 class Validator extends BaseValidator
 {
     /**
      * Available validation rule names
+     *
+     * @var string[]
      */
     public const VALIDATION_RULE_NAMES = [
         'color',
@@ -21,7 +24,7 @@ class Validator extends BaseValidator
     /**
      * Supported color names
      *
-     * @var array
+     * @var string[]
      */
     public const AVAILABLE_COLOR_NAMES = [
         // CSS Level 1
@@ -181,7 +184,7 @@ class Validator extends BaseValidator
     /**
      * Special color names
      *
-     * @var array
+     * @var string[]
      */
     public const AVAILABLE_SPECIAL_COLOR_NAMES = [
         'transparent',
@@ -194,7 +197,7 @@ class Validator extends BaseValidator
      * @param string $value
      * @return bool
      */
-    public function validateColor($attribute, $value)
+    public function validateColor($attribute, $value): bool
     {
         $fnNames = ['validateColorHex', 'validateColorRGB', 'validateColorRGBA', 'validateColorName'];
 
@@ -208,7 +211,7 @@ class Validator extends BaseValidator
      * @param string $value
      * @return bool
      */
-    public function validateColorHex($attribute, $value)
+    public function validateColorHex($attribute, $value): bool
     {
         $fnNames = ['isColorLongHex', 'isColorShortHex'];
 
@@ -222,7 +225,7 @@ class Validator extends BaseValidator
      * @param string $value
      * @return bool
      */
-    public function validateColorRGB($attribute, $value)
+    public function validateColorRGB($attribute, $value): bool
     {
         $regex = '/^(rgb)\(([01]?\d\d?|2[0-4]\d|25[0-5])(\W+)([01]?\d\d?|2[0-4]\d|25[0-5])\W+(([01]?\d\d?|2[0-4]\d|25[0-5])\))$/i';
 
@@ -236,7 +239,7 @@ class Validator extends BaseValidator
      * @param string $value
      * @return bool
      */
-    public function validateColorRGBA($attribute, $value)
+    public function validateColorRGBA($attribute, $value): bool
     {
         $regex = '/^(rgba)\(([01]?\d\d?|2[0-4]\d|25[0-5])\W+([01]?\d\d?|2[0-4]\d|25[0-5])\W+([01]?\d\d?|2[0-4]\d|25[0-5])\)?\W+([01](\.\d+)?)\)$/i';
 
@@ -250,7 +253,7 @@ class Validator extends BaseValidator
      * @param string $value
      * @return bool
      */
-    public function validateColorName($attribute, $value)
+    public function validateColorName($attribute, $value): bool
     {
         return in_array(Str::lower($value), self::AVAILABLE_COLOR_NAMES, true)
             || in_array(Str::lower($value), self::AVAILABLE_SPECIAL_COLOR_NAMES, true);
@@ -263,7 +266,7 @@ class Validator extends BaseValidator
      * @param string $color
      * @return bool
      */
-    private function isColorShortHex($attribute, $color)
+    private function isColorShortHex($attribute, $color): bool
     {
         $regex = '/^#(\d|a|b|c|d|e|f){3}$/i';
 
@@ -277,7 +280,7 @@ class Validator extends BaseValidator
      * @param string $color
      * @return bool
      */
-    private function isColorLongHex($attribute, $color)
+    private function isColorLongHex($attribute, $color): bool
     {
         $regex = '/^#(\d|a|b|c|d|e|f){6}$/i';
 
@@ -288,14 +291,12 @@ class Validator extends BaseValidator
      * The regular expression matcher
      *
      * @param string $color
-     * @param string $str
+     * @param string $pattern
      * @return bool
      */
-    private function callPregMatcher($color, $str)
+    private function callPregMatcher($color, $pattern): bool
     {
-        preg_match($str, $color, $matches);
-
-        return count($matches) > 0;
+        return Regex::match($pattern, $color)->hasMatch();
     }
 
     /**
@@ -306,7 +307,7 @@ class Validator extends BaseValidator
      * @param string $value
      * @return bool
      */
-    private function checkValidationFnsFor($fnNames, $attribute, $value)
+    private function checkValidationFnsFor($fnNames, $attribute, $value): bool
     {
         return array_reduce($fnNames, function ($accum, $fnName) use ($attribute, $value) {
             return $accum || $this->{$fnName}($attribute, $value);
