@@ -19,6 +19,7 @@ class Validator extends BaseValidator
         'color_rgb',
         'color_rgba',
         'color_name',
+        'color_hsl',
     ];
 
     /**
@@ -199,7 +200,7 @@ class Validator extends BaseValidator
      */
     public function validateColor($attribute, $value): bool
     {
-        $fnNames = ['validateColorHex', 'validateColorRGB', 'validateColorRGBA', 'validateColorName'];
+        $fnNames = ['validateColorHex', 'validateColorRGB', 'validateColorRGBA', 'validateColorName', 'validateColorHSL'];
 
         return $this->checkValidationFnsFor($fnNames, $attribute, $value);
     }
@@ -257,6 +258,20 @@ class Validator extends BaseValidator
     {
         return in_array(Str::lower($value), self::AVAILABLE_COLOR_NAMES, true)
             || in_array(Str::lower($value), self::AVAILABLE_SPECIAL_COLOR_NAMES, true);
+    }
+
+    /**
+     * The HSL color validator
+     *
+     * @param string $attribute
+     * @param string $value
+     * @return bool
+     */
+    public function validateColorHSL($attribute, $value): bool
+    {
+        $regex = '/^(hsl\((?:[0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-9][0-9]|3[0-5][0-9]|360),(?:\s|)(?:[0-9]|[1-9][0-9]|100)%),(?:\s|)(?:[0-9]|[1-9][0-9]|100)%\)$/i';
+
+        return $this->callPregMatcher($value, $regex);
     }
 
     /**

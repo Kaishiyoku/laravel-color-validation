@@ -20,6 +20,7 @@ class ColorValidatorTest extends TestCase
         $this->assertTrue($this->validate('#37F', 'color'));
         $this->assertTrue($this->validate('#37FFFF', 'color'));
         $this->assertFalse($this->validate('fakecolor!', 'color'));
+        $this->assertTrue($this->validate('hsl(360, 30%, 20%)', 'color'));
     }
 
     public function testValidatorColorAsHex()
@@ -58,5 +59,11 @@ class ColorValidatorTest extends TestCase
         $this->assertTrue($this->validate('blue', 'color_name'));
         $this->assertTrue($this->validate('transparent', 'color_name'));
         $this->assertTrue($this->validate('TRANSPARENT', 'color_name'));
+    }
+
+    public function testValidatorColorAsHSL()
+    {
+        $this->assertFalse($this->validate('fakecolor', 'color_hsl'));
+        $this->assertTrue($this->validate('hsl(120,60%,70%)', 'color_hsl'));
     }
 }
