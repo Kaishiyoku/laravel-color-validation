@@ -38,7 +38,7 @@ class ServiceProvider extends IlluminateServiceProvider
                 $colorValidationMessages = trans(self::NAMESPACE . '::validation');
                 $fallbackValidationMessages = array_map(function ($value) {
                     return self::NAMESPACE . '::' . $value;
-                }, array_keys(include_once(__DIR__ . '/../../../../resources/lang/en/validation.php')));
+                }, array_keys(include(__DIR__ . '/../../../../resources/lang/en/validation.php')));
 
                 $messages = array_merge($messages, is_string($colorValidationMessages) ? $fallbackValidationMessages : $colorValidationMessages);
 
