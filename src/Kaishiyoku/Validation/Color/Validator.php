@@ -180,6 +180,15 @@ class Validator extends BaseValidator
     ];
 
     /**
+     * Special color names
+     *
+     * @var array
+     */
+    public const AVAILABLE_SPECIAL_COLOR_NAMES = [
+        'transparent',
+    ];
+
+    /**
      * The standard color validator (hex, rgb, rgba)
      *
      * @param string $attribute
@@ -244,7 +253,8 @@ class Validator extends BaseValidator
      */
     public function validateColorName($attribute, $value)
     {
-        return in_array($value, self::AVAILABLE_COLOR_NAMES, true);
+        return in_array($value, self::AVAILABLE_COLOR_NAMES, true)
+            || in_array($value, self::AVAILABLE_SPECIAL_COLOR_NAMES, true);
     }
 
     /**
