@@ -2,6 +2,7 @@
 
 namespace Kaishiyoku\Validation\Color;
 
+use Illuminate\Support\Str;
 use Illuminate\Validation\Validator as BaseValidator;
 
 class Validator extends BaseValidator
@@ -251,8 +252,8 @@ class Validator extends BaseValidator
      */
     public function validateColorName($attribute, $value)
     {
-        return in_array($value, self::AVAILABLE_COLOR_NAMES, true)
-            || in_array($value, self::AVAILABLE_SPECIAL_COLOR_NAMES, true);
+        return in_array(Str::lower($value), self::AVAILABLE_COLOR_NAMES, true)
+            || in_array(Str::lower($value), self::AVAILABLE_SPECIAL_COLOR_NAMES, true);
     }
 
     /**
