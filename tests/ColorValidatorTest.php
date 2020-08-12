@@ -57,5 +57,6 @@ class ColorValidatorTest extends TestCase
         $this->assertFalse($this->validate('invalidcolor', 'color_name'));
         $this->assertTrue($this->validate('blue', 'color_name'));
         $this->assertTrue($this->validate('transparent', 'color_name'));
+        $this->assertTrue($this->validate('TRANSPARENT', 'color_name'));
     }
 }
