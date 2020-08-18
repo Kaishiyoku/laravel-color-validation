@@ -35,12 +35,11 @@ class ServiceProvider extends IlluminateServiceProvider
     {
         $this->app->resolving('validator', function (Factory $factory, $app) {
             $factory->resolver(function ($translator, $data, $rules, $messages) {
-                $colorValidationMessages = trans(self::NAMESPACE . '::validation');
-                $fallbackValidationMessages = array_map(function ($value) {
-                    return self::NAMESPACE . '::' . $value;
-                }, array_keys(include(__DIR__ . '/../../../../resources/lang/en/validation.php')));
+                $colorValidationMessages = __(self::NAMESPACE . '::validation');
 
-                $messages = array_merge($messages, is_string($colorValidationMessages) ? $fallbackValidationMessages : $colorValidationMessages);
+                $messages = array_merge($messages, is_string($colorValidationMessages)
+                    ? __(self::NAMESPACE . '::validation', [], self::FALLBACK_LOCALE)
+                    : $colorValidationMessages);
 
                 return new ColorValidator($translator, $data, $rules, $messages);
             });
