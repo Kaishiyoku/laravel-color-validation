@@ -7,7 +7,7 @@
         "color"
     ],
     "homepage": "https://github.com/Kaishiyoku/laravel-color-validation",
-    "license": "MIT",  
+    "license": "MIT",
     "authors": [
         {
             "name": "Kaishiyoku",
@@ -24,11 +24,11 @@
             "Kaishiyoku\\Validation\\Color\\Tests\\": "tests/"
         }
     },
-    "minimum-stability": "stable",  
+    "minimum-stability": "stable",
     "require": {
         "php": "^7.2",
-        "illuminate/support": "^5.4|^6.0|^7.0",
-        "illuminate/validation": "^5.4|^6.0|^7.0",
+        "illuminate/support": "^6.0|^7.0",
+        "illuminate/validation": "^6.0|^7.0",
         "spatie/regex": "^1.4"
     },
     "require-dev": {
