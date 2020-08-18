@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.4.0](https://github.com/kaishiyoku/laravel-color-validation/tree/1.4.0) (2020-08-18)
+
+[Full Changelog](https://github.com/kaishiyoku/laravel-color-validation/compare/1.3.0...1.4.0)
+
+**Implemented enhancements:**
+
+- Add support for hsla colors [\#6](https://github.com/Kaishiyoku/laravel-color-validation/issues/6)
+- Add support for hsl colors [\#5](https://github.com/Kaishiyoku/laravel-color-validation/issues/5)
+
+**Closed issues:**
+
+- array\_keys\(include\_once\(…\)\) on ServiceProvider::register\(\) causing error [\#3](https://github.com/Kaishiyoku/laravel-color-validation/issues/3)
+
 ## [1.3.0](https://github.com/kaishiyoku/laravel-color-validation/tree/1.3.0) (2020-08-12)
 
 [Full Changelog](https://github.com/kaishiyoku/laravel-color-validation/compare/1.2.1...1.3.0)
