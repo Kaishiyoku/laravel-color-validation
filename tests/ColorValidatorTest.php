@@ -21,6 +21,7 @@ class ColorValidatorTest extends TestCase
         $this->assertTrue($this->validate('#37FFFF', 'color'));
         $this->assertFalse($this->validate('fakecolor!', 'color'));
         $this->assertTrue($this->validate('hsl(360, 30%, 20%)', 'color'));
+        $this->assertTrue($this->validate('hsla(360, 30%, 20%, 0.57893)', 'color'));
     }
 
     public function testValidatorColorAsHex()
@@ -65,5 +66,21 @@ class ColorValidatorTest extends TestCase
     {
         $this->assertFalse($this->validate('fakecolor', 'color_hsl'));
         $this->assertTrue($this->validate('hsl(120,60%,70%)', 'color_hsl'));
+    }
+
+    public function testValidatorColorAsHSLA()
+    {
+        $this->assertFalse($this->validate('fakecolor', 'color_hsla'));
+        $this->assertTrue($this->validate('hsla(120,60%,70%,1)', 'color_hsla'));
+        $this->assertTrue($this->validate('hsla(120,60%,70%,0)', 'color_hsla'));
+        $this->assertTrue($this->validate('hsla(120, 60%, 70%, 0.52834823489)', 'color_hsla'));
+        $this->assertFalse($this->validate('hsla(120,60%,70%,1.00000123)', 'color_hsla'));
+        $this->assertFalse($this->validate('hsla(120,60%,70%,2)', 'color_hsla'));
+        $this->assertTrue($this->validate('hsla(102, 100%, 50%, 1.0000000)', 'color_hsla'));
+        $this->assertFalse($this->validate('hsla(102, 100%, 50%, 1.)', 'color_hsla'));
+        $this->assertFalse($this->validate('hsla(102, 100%, 50%, 0.)', 'color_hsla'));
+        $this->assertTrue($this->validate('hsla(102, 100%, 50%, 0.1)', 'color_hsla'));
+        $this->assertTrue($this->validate('hsla(102, 100%, 50%, 0)', 'color_hsla'));
+        $this->assertFalse($this->validate('hsla(980, 100%, 50%, 0)', 'color_hsla'));
     }
 }

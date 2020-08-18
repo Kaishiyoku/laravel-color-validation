@@ -20,6 +20,7 @@ class Validator extends BaseValidator
         'color_rgba',
         'color_name',
         'color_hsl',
+        'color_hsla',
     ];
 
     /**
@@ -200,7 +201,14 @@ class Validator extends BaseValidator
      */
     public function validateColor($attribute, $value): bool
     {
-        $fnNames = ['validateColorHex', 'validateColorRGB', 'validateColorRGBA', 'validateColorName', 'validateColorHSL'];
+        $fnNames = [
+            'validateColorHex',
+            'validateColorRGB',
+            'validateColorRGBA',
+            'validateColorName',
+            'validateColorHSL',
+            'validateColorHSLA',
+        ];
 
         return $this->checkValidationFnsFor($fnNames, $attribute, $value);
     }
@@ -270,6 +278,20 @@ class Validator extends BaseValidator
     public function validateColorHSL($attribute, $value): bool
     {
         $regex = '/^(hsl\((?:[0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-9][0-9]|3[0-5][0-9]|360),(?:\s|)(?:[0-9]|[1-9][0-9]|100)%),(?:\s|)(?:[0-9]|[1-9][0-9]|100)%\)$/i';
+
+        return $this->callPregMatcher($value, $regex);
+    }
+
+    /**
+     * The HSLA color validator
+     *
+     * @param string $attribute
+     * @param string $value
+     * @return bool
+     */
+    public function validateColorHSLA($attribute, $value): bool
+    {
+        $regex = '/^^(hsla\((?:[0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-9][0-9]|3[0-5][0-9]|360),(?:\s|)(?:[0-9]|[1-9][0-9]|100)%),(?:\s|)(?:[0-9]|[1-9][0-9]|100)%,(?:\s|)(0|1|1\.0{1,}|0\.[0-9]{1,})\)$/i';
 
         return $this->callPregMatcher($value, $regex);
     }
