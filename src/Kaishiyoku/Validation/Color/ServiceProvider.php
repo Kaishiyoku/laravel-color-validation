@@ -34,14 +34,14 @@ class ServiceProvider extends IlluminateServiceProvider
     public function register()
     {
         $this->app->resolving('validator', function (Factory $factory, $app) {
-            $factory->resolver(function ($translator, $data, $rules, $messages) {
+            $factory->resolver(function ($translator, $data, $rules, $messages, $attributes) {
                 $colorValidationMessages = __(self::NAMESPACE . '::validation');
 
                 $messages = array_merge($messages, is_string($colorValidationMessages)
                     ? __(self::NAMESPACE . '::validation', [], self::FALLBACK_LOCALE)
                     : $colorValidationMessages);
 
-                return new ColorValidator($translator, $data, $rules, $messages);
+                return new ColorValidator($translator, $data, $rules, $messages, $attributes);
             });
         });
     }
