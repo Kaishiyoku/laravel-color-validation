@@ -10,7 +10,7 @@ Table of contents
 
 About
 =====
-**This package will let you validate that a certain value is a valid CSS color string using Laravel >= 5.**
+**This package will let you validate that a certain value is a valid CSS color string using Laravel >= 6.**
 
 Installation
 ============
@@ -19,7 +19,7 @@ Install via [composer](https://getcomposer.org/) - In the terminal:
 ```bash
 composer require kaishiyoku/laravel-color-validation
 ```
-If you're not Using Laravel 5.7+ or don't have package auto-discovery add the following to the `providers` array in your `config/app.php`
+If you're not using package auto-discovery add the following to the `providers` array in your `config/app.php`
 ```php
 Kaishiyoku\Validation\Color\ServiceProvider::class,
 ```
