@@ -1,13 +1,3 @@
-Table of contents
-=================
-* [About](#about)
-* [Installaion](#installation)
-* [Usage](#usage)
-* [Using other locales](#using-other-locales)
-* [Adjusting existing locales](#adjusting-existing-locales)
-* [License](#license)
-* [Author](#author)
-
 About
 =====
 **This package will let you validate that a certain value is a valid CSS color string using Laravel >= 6.**
