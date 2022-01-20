@@ -14,10 +14,6 @@ jobs:
         operating-system: ['ubuntu-latest']
         php-versions: ['7.3', '7.4', '8.0', '8.1']
         phpunit-versions: ['latest']
-        include:
-        - operating-system: 'ubuntu-latest'
-          php-versions: '7.2'
-          phpunit-versions: '8.5.21'
 
     steps:
     - uses: shivammathur/setup-php@v2
