@@ -1,8 +1,9 @@
 {
     "name": "kaishiyoku/laravel-color-validation",
-    "description": "Laravel 5 color validation rules",
+    "description": "Laravel  color validation rules",
     "keywords": [
         "laravel",
+        "validation rules",
         "validator",
         "color"
     ],
@@ -11,7 +12,9 @@
     "authors": [
         {
             "name": "Kaishiyoku",
-            "email": "dev@andreas-wiedel.de"
+            "email": "dev@andreas-wiedel.de",
+            "homepage": "https://andreas-wiedel.de",
+            "role": "Maintainer"
         }
     ],
     "autoload":{
