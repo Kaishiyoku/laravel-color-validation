@@ -11,6 +11,7 @@ About
 Mimimum requirements
 ============
 * PHP 7.4
+* Laravel 6
 
 Installation
 ============
