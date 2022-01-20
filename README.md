@@ -8,7 +8,7 @@ About
 =====
 **This package will let you validate that a certain value is a valid CSS color string using Laravel >= 6.**
 
-Mimimum requirements
+Minimum requirements
 ============
 * PHP 7.4
 * Laravel 6
