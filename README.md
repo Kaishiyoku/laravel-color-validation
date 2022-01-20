@@ -1,3 +1,5 @@
+[![Tests](https://github.com/Kaishiyoku/laravel-color-validation/actions/workflows/tests.yml/badge.svg)](https://github.com/Kaishiyoku/laravel-color-validation/actions/workflows/tests.yml)
+
 About
 =====
 **This package will let you validate that a certain value is a valid CSS color string using Laravel >= 6.**
