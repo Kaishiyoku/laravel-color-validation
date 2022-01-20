@@ -1,4 +1,8 @@
 [![Tests](https://github.com/Kaishiyoku/laravel-color-validation/actions/workflows/tests.yml/badge.svg)](https://github.com/Kaishiyoku/laravel-color-validation/actions/workflows/tests.yml)
+[![Latest Stable Version](http://poser.pugx.org/kaishiyoku/laravel-color-validation/v)](https://packagist.org/packages/kaishiyoku/laravel-color-validation)
+[![Total Downloads](http://poser.pugx.org/kaishiyoku/laravel-color-validation/downloads)](https://packagist.org/packages/kaishiyoku/laravel-color-validation)
+[![License](http://poser.pugx.org/kaishiyoku/laravel-color-validation/license)](https://packagist.org/packages/kaishiyoku/laravel-color-validation)
+[![PHP Version Require](http://poser.pugx.org/kaishiyoku/laravel-color-validation/require/php)](https://packagist.org/packages/kaishiyoku/laravel-color-validation)
 
 About
 =====
