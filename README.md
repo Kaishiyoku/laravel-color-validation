@@ -79,5 +79,4 @@ MIT (https://github.com/Kaishiyoku/laravel-color-validation/blob/master/LICENSE)
 
 Author
 ======
-Twitter: [@kaishiyoku](https://twitter.com/kaishiyoku)  
-Website: www.andreas-wiedel.de
+Website: [andreas-wiedel.de](https://andreas-wiedel.de)
