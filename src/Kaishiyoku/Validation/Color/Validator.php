@@ -9,21 +9,6 @@ use Spatie\Regex\Regex;
 class Validator extends BaseValidator
 {
     /**
-     * Available validation rule names
-     *
-     * @var string[]
-     */
-    public const VALIDATION_RULE_NAMES = [
-        'color',
-        'color_hex',
-        'color_rgb',
-        'color_rgba',
-        'color_name',
-        'color_hsl',
-        'color_hsla',
-    ];
-
-    /**
      * Supported color names
      *
      * @var string[]
