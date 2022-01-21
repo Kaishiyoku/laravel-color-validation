@@ -194,12 +194,8 @@ class Validator extends BaseValidator
 
     /**
      * The standard color validator (hex, rgb, rgba)
-     *
-     * @param string $attribute
-     * @param string $value
-     * @return bool
      */
-    public function validateColor($attribute, $value): bool
+    public function validateColor(string $attribute, ?string $value): bool
     {
         $fnNames = [
             'validateColorHex',
@@ -215,12 +211,8 @@ class Validator extends BaseValidator
 
     /**
      * The hex color validator
-     *
-     * @param string $attribute
-     * @param string $value
-     * @return bool
      */
-    public function validateColorHex($attribute, $value): bool
+    public function validateColorHex(string $attribute, ?string $value): bool
     {
         $fnNames = ['isColorLongHex', 'isColorShortHex'];
 
@@ -229,12 +221,8 @@ class Validator extends BaseValidator
 
     /**
      * The RGB color validator
-     *
-     * @param string $attribute
-     * @param string $value
-     * @return bool
      */
-    public function validateColorRGB($attribute, $value): bool
+    public function validateColorRGB(string $attribute, ?string $value): bool
     {
         $regex = '/^(rgb)\(([01]?\d\d?|2[0-4]\d|25[0-5])(\W+)([01]?\d\d?|2[0-4]\d|25[0-5])\W+(([01]?\d\d?|2[0-4]\d|25[0-5])\))$/i';
 
@@ -243,12 +231,8 @@ class Validator extends BaseValidator
 
     /**
      * The RGBA color validator
-     *
-     * @param string $attribute
-     * @param string $value
-     * @return bool
      */
-    public function validateColorRGBA($attribute, $value): bool
+    public function validateColorRGBA(string $attribute, ?string $value): bool
     {
         $regex = '/^(rgba)\(([01]?\d\d?|2[0-4]\d|25[0-5])\W+([01]?\d\d?|2[0-4]\d|25[0-5])\W+([01]?\d\d?|2[0-4]\d|25[0-5])\)?\W+([01](\.\d+)?)\)$/i';
 
@@ -257,12 +241,8 @@ class Validator extends BaseValidator
 
     /**
      * The color name validator
-     *
-     * @param string $attribute
-     * @param string $value
-     * @return bool
      */
-    public function validateColorName($attribute, $value): bool
+    public function validateColorName(string $attribute, ?string $value): bool
     {
         return in_array(Str::lower($value), self::AVAILABLE_COLOR_NAMES, true)
             || in_array(Str::lower($value), self::AVAILABLE_SPECIAL_COLOR_NAMES, true);
@@ -270,12 +250,8 @@ class Validator extends BaseValidator
 
     /**
      * The HSL color validator
-     *
-     * @param string $attribute
-     * @param string $value
-     * @return bool
      */
-    public function validateColorHSL($attribute, $value): bool
+    public function validateColorHSL(string $attribute, ?string $value): bool
     {
         $regex = '/^(hsl\((?:[0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-9][0-9]|3[0-5][0-9]|360),(?:\s|)(?:[0-9]|[1-9][0-9]|100)%),(?:\s|)(?:[0-9]|[1-9][0-9]|100)%\)$/i';
 
@@ -284,12 +260,8 @@ class Validator extends BaseValidator
 
     /**
      * The HSLA color validator
-     *
-     * @param string $attribute
-     * @param string $value
-     * @return bool
      */
-    public function validateColorHSLA($attribute, $value): bool
+    public function validateColorHSLA(string $attribute, ?string $value): bool
     {
         $regex = '/^^(hsla\((?:[0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-9][0-9]|3[0-5][0-9]|360),(?:\s|)(?:[0-9]|[1-9][0-9]|100)%),(?:\s|)(?:[0-9]|[1-9][0-9]|100)%,(?:\s|)(0|1|1\.0{1,}|0\.[0-9]{1,})\)$/i';
 
@@ -298,42 +270,30 @@ class Validator extends BaseValidator
 
     /**
      * Check if a color is valid (short hex)
-     *
-     * @param string $attribute
-     * @param string $color
-     * @return bool
      */
-    private function isColorShortHex($attribute, $color): bool
+    private function isColorShortHex(string $attribute, ?string $value): bool
     {
         $regex = '/^#(\d|a|b|c|d|e|f){3}$/i';
 
-        return $this->callPregMatcher($color, $regex);
+        return $this->callPregMatcher($value, $regex);
     }
 
     /**
      * Check if a color is valid (long hex)
-     *
-     * @param string $attribute
-     * @param string $color
-     * @return bool
      */
-    private function isColorLongHex($attribute, $color): bool
+    private function isColorLongHex(string $attribute, ?string $value): bool
     {
         $regex = '/^#(\d|a|b|c|d|e|f){6}$/i';
 
-        return $this->callPregMatcher($color, $regex);
+        return $this->callPregMatcher($value, $regex);
     }
 
     /**
      * The regular expression matcher
-     *
-     * @param string $color
-     * @param string $pattern
-     * @return bool
      */
-    private function callPregMatcher($color, $pattern): bool
+    private function callPregMatcher(?string $value, string $pattern): bool
     {
-        return Regex::match($pattern, $color)->hasMatch();
+        return Regex::match($pattern, $value ?: '')->hasMatch();
     }
 
     /**
@@ -341,10 +301,10 @@ class Validator extends BaseValidator
      *
      * @param string[] $fnNames
      * @param string $attribute
-     * @param string $value
+     * @param string|null $value
      * @return bool
      */
-    private function checkValidationFnsFor($fnNames, $attribute, $value): bool
+    private function checkValidationFnsFor(array $fnNames, string $attribute, ?string $value): bool
     {
         return array_reduce($fnNames, function ($accum, $fnName) use ($attribute, $value) {
             return $accum || $this->{$fnName}($attribute, $value);

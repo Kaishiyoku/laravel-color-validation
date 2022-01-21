@@ -6,13 +6,14 @@ use Validator;
 
 class ColorValidatorTest extends TestCase
 {
-    protected function validate($color, $rule = 'color')
+    protected function validate($color, $rule = 'color'): bool
     {
         return !(Validator::make(['test' => $color], ['test' => $rule])->fails());
     }
 
-    public function testValidatorColor()
+    public function testValidatorColor(): void
     {
+        $this->assertFalse($this->validate(null, 'color'));
         $this->assertTrue($this->validate('white', 'color'));
         $this->assertTrue($this->validate('DeepSkyBlue', 'color'));
         $this->assertTrue($this->validate('rgba(4,200,100,0)', 'color'));
@@ -24,8 +25,9 @@ class ColorValidatorTest extends TestCase
         $this->assertTrue($this->validate('hsla(360, 30%, 20%, 0.57893)', 'color'));
     }
 
-    public function testValidatorColorAsHex()
+    public function testValidatorColorAsHex(): void
     {
+        $this->assertFalse($this->validate(null, 'color_hex'));
         $this->assertFalse($this->validate('white', 'color_hex'));
         $this->assertFalse($this->validate('rgba(4,200,100,0)', 'color_hex'));
         $this->assertFalse($this->validate('rgb(4,200,100)', 'color_hex'));
@@ -34,8 +36,9 @@ class ColorValidatorTest extends TestCase
         $this->assertFalse($this->validate('fakecolor!', 'color_hex'));
     }
 
-    public function testValidatorColorAsRGB()
+    public function testValidatorColorAsRGB(): void
     {
+        $this->assertFalse($this->validate(null, 'color_rgb'));
         $this->assertFalse($this->validate('white', 'color_rgb'));
         $this->assertFalse($this->validate('rgba(4,200,100,0)', 'color_rgb'));
         $this->assertTrue($this->validate('rgb(4,200,100)', 'color_rgb'));
@@ -44,8 +47,9 @@ class ColorValidatorTest extends TestCase
         $this->assertFalse($this->validate('fakecolor!', 'color_rgb'));
     }
 
-    public function testValidatorColorAsRGBA()
+    public function testValidatorColorAsRGBA(): void
     {
+        $this->assertFalse($this->validate(null, 'color_rgba'));
         $this->assertFalse($this->validate('white', 'color_rgba'));
         $this->assertTrue($this->validate('rgba(4,200,100,0)', 'color_rgba'));
         $this->assertFalse($this->validate('rgb(4,200,100)', 'color_rgba'));
@@ -54,22 +58,25 @@ class ColorValidatorTest extends TestCase
         $this->assertFalse($this->validate('fakecolor!', 'color_rgba'));
     }
 
-    public function testValidatorColorAsName()
+    public function testValidatorColorAsName(): void
     {
+        $this->assertFalse($this->validate(null, 'color_name'));
         $this->assertFalse($this->validate('invalidcolor', 'color_name'));
         $this->assertTrue($this->validate('blue', 'color_name'));
         $this->assertTrue($this->validate('transparent', 'color_name'));
         $this->assertTrue($this->validate('TRANSPARENT', 'color_name'));
     }
 
-    public function testValidatorColorAsHSL()
+    public function testValidatorColorAsHSL(): void
     {
+        $this->assertFalse($this->validate(null, 'color_hsl'));
         $this->assertFalse($this->validate('fakecolor', 'color_hsl'));
         $this->assertTrue($this->validate('hsl(120,60%,70%)', 'color_hsl'));
     }
 
-    public function testValidatorColorAsHSLA()
+    public function testValidatorColorAsHSLA(): void
     {
+        $this->assertFalse($this->validate(null, 'color_hsla'));
         $this->assertFalse($this->validate('fakecolor', 'color_hsla'));
         $this->assertTrue($this->validate('hsla(120,60%,70%,1)', 'color_hsla'));
         $this->assertTrue($this->validate('hsla(120,60%,70%,0)', 'color_hsla'));
