@@ -6,7 +6,7 @@ use Validator;
 
 class ColorValidatorTest extends TestCase
 {
-    protected function validate($color, $rule = 'color'): bool
+    protected function validate(?string $color, string $rule): bool
     {
         return !(Validator::make(['test' => $color], ['test' => $rule])->fails());
     }
