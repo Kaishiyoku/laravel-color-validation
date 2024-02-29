@@ -1,0 +1,162 @@
+<?php
+
+namespace Kaishiyoku\Validation\Color\Enums;
+
+enum Color: string
+{
+    // CSS Level 1
+    case Silver = 'silver';
+    case Gray = 'gray';
+    case White = 'white';
+    case Maroon = 'maroon';
+    case Red = 'red';
+    case Purple = 'purple';
+    case Fuchsia = 'fuchsia';
+    case Green = 'green';
+    case Lime = 'lime';
+    case Olive = 'olive';
+    case Yellow = 'yellow';
+    case Navy = 'navy';
+    case Blue = 'blue';
+    case Teal = 'teal';
+    case Aqua = 'aqua';
+
+    // CSS Level 2 (Revision 1)
+    case Orange = 'orange';
+    case AliceBlue = 'aliceblue';
+    case AntiqueWhite = 'antiquewhite';
+    case Aquamarine = 'aquamarine';
+    case Azure = 'azure';
+    case Beige = 'beige';
+    case Bisque = 'bisque';
+    case BlanchedAlmond = 'blanchedalmond';
+    case BlueViolet = 'blueviolet';
+    case Brown = 'brown';
+    case BurlyWood = 'burlywood';
+    case CadetBlue = 'cadetblue';
+    case Chartreuse = 'chartreuse';
+    case Chocolate = 'chocolate';
+    case Coral = 'coral';
+    case CornflowerBlue = 'cornflowerblue';
+    case Cornsilk = 'cornsilk';
+    case Crimson = 'crimson';
+    case DarkBlue = 'darkblue';
+    case DarkCyan = 'darkcyan';
+    case DarkGoldenRod = 'darkgoldenrod';
+    case DarkGray = 'darkgray';
+    case DarkGreen = 'darkgreen';
+    case DarkGrey = 'darkgrey';
+    case DarkKhaki = 'darkkhaki';
+    case DarkMagenta = 'darkmagenta';
+    case DarkOliveGreen = 'darkolivegreen';
+    case DarkOrange = 'darkorange';
+    case DarkOrchid = 'darkorchid';
+    case DarkRed = 'darkred';
+    case DarkSalmon = 'darksalmon';
+    case DarkSeaGreen = 'darkseagreen';
+    case DarkSlateBlue = 'darkslateblue';
+    case DarkSlateGray = 'darkslategray';
+    case DarkSlateGrey = 'darkslategrey';
+    case DarkTurquoise = 'darkturquoise';
+    case DarkViolet = 'darkviolet';
+    case DeepPink = 'deeppink';
+    case DeepSkyBlue = 'deepskyblue';
+    case DimGray = 'dimgray';
+    case DimGrey = 'dimgrey';
+    case DodgerBlue = 'dodgerblue';
+    case FireBrick = 'firebrick';
+    case FloralWhite = 'floralwhite';
+    case ForestGreen = 'forestgreen';
+    case Gainsboro = 'gainsboro';
+    case GhostWhite = 'ghostwhite';
+    case Gold = 'gold';
+    case GoldenRod = 'goldenrod';
+    case GreenYellow = 'greenyellow';
+    case Grey = 'grey';
+    case HoneyDew = 'honeydew';
+    case HotPink = 'hotpink';
+    case IndianRed = 'indianred';
+    case Indigo = 'indigo';
+    case Ivory = 'ivory';
+    case Khaki = 'khaki';
+    case Lavender = 'lavender';
+    case LavenderBlush = 'lavenderblush';
+    case LawnGreen = 'lawngreen';
+    case LemonChiffon = 'lemonchiffon';
+    case LightBlue = 'lightblue';
+    case LightCoral = 'lightcoral';
+    case LightCyan = 'lightcyan';
+    case LightGoldenRodYellow = 'lightgoldenrodyellow';
+
+    // CSS Color Module Level 3
+    case LightGray = 'lightgray';
+    case LightGreen = 'lightgreen';
+    case LightGrey = 'lightgrey';
+    case LightPink = 'lightpink';
+    case LightSalmon = 'lightsalmon';
+    case LightSeaGreen = 'lightseagreen';
+    case LightSkyBlue = 'lightskyblue';
+    case LightSlateGray = 'lightslategray';
+    case LightSlateGrey = 'lightslategrey';
+    case LightSteelBlue = 'lightsteelblue';
+    case LightYellow = 'lightyellow';
+    case LimeGreen = 'limegreen';
+    case Linen = 'linen';
+    case MediumAquamarine = 'mediumaquamarine';
+    case MediumBlue = 'mediumblue';
+    case MediumOrchid = 'mediumorchid';
+    case MediumPurple = 'mediumpurple';
+    case MediumSeaGreen = 'mediumseagreen';
+    case MediumSlateBlue = 'mediumslateblue';
+    case MediumSpringGreen = 'mediumspringgreen';
+    case MediumTurquoise = 'mediumturquoise';
+    case MediumVioletRed = 'mediumvioletred';
+    case MidnightBlue = 'midnightblue';
+    case MintCream = 'mintcream';
+    case MistyRose = 'mistyrose';
+    case Moccasin = 'moccasin';
+    case NavajoWhite = 'navajowhite';
+    case OldLace = 'oldlace';
+    case OliveDrab = 'olivedrab';
+    case OrangeRed = 'orangered';
+    case Orchid = 'orchid';
+    case PaleGoldenRod = 'palegoldenrod';
+    case PaleGreen = 'palegreen';
+    case PaleTurquoise = 'paleturquoise';
+    case PaleVioletRed = 'palevioletred';
+    case PapayaWhip = 'papayawhip';
+    case PeachPuff = 'peachpuff';
+    case Peru = 'peru';
+    case Pink = 'pink';
+    case Plum = 'plum';
+    case PowderBlue = 'powderblue';
+    case RosyBrown = 'rosybrown';
+    case RoyalBlue = 'royalblue';
+    case SaddleBrown = 'saddlebrown';
+    case Salmon = 'salmon';
+    case SandyBrown = 'sandybrown';
+    case SeaGreen = 'seagreen';
+    case Seashell = 'seashell';
+    case Sienna = 'sienna';
+    case SkyBlue = 'skyblue';
+    case SlateBlue = 'slateblue';
+    case SlateGray = 'slategray';
+    case SlateGrey = 'slategrey';
+    case Snow = 'snow';
+    case SpringGreen = 'springgreen';
+    case SteelBlue = 'steelblue';
+    case Tan = 'tan';
+    case Thistle = 'thistle';
+    case Tomato = 'tomato';
+    case Turquoise = 'turquoise';
+    case Violet = 'violet';
+    case Wheat = 'wheat';
+    case WhiteSmoke = 'whitesmoke';
+    case YellowGreen = 'yellowgreen';
+
+    // CSS Color Module Level 4
+    case RebeccaPurple = 'rebeccapurple';
+
+    // Special colors
+    case Transparent = 'transparent';
+}

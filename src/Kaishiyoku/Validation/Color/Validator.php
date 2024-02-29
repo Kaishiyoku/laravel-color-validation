@@ -4,6 +4,7 @@ namespace Kaishiyoku\Validation\Color;
 
 use Illuminate\Support\Str;
 use Illuminate\Validation\Validator as BaseValidator;
+use Kaishiyoku\Validation\Color\Enums\Color;
 use Spatie\Regex\Regex;
 
 class Validator extends BaseValidator
@@ -60,8 +61,11 @@ class Validator extends BaseValidator
      */
     public function validateColorName(string $attribute, ?string $value): bool
     {
-        return in_array(Str::lower($value), ColorConstants::AVAILABLE_COLOR_NAMES, true)
-            || in_array(Str::lower($value), ColorConstants::AVAILABLE_SPECIAL_COLOR_NAMES, true);
+        return in_array(
+            needle: Str::lower($value),
+            haystack: array_map(fn (Color $color) => $color->value, Color::cases()),
+            strict: true,
+        );
     }
 
     /**
