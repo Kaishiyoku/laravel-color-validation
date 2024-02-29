@@ -10,8 +10,8 @@ About
 
 Minimum requirements
 ============
-* PHP 7.4
-* Laravel 6
+* PHP 8.1
+* Laravel 10
 
 Installation
 ============
