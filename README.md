@@ -6,12 +6,12 @@
 
 About
 =====
-**This package will let you validate that a certain value is a valid CSS color string using Laravel >= 6.**
+**This package will let you validate that a certain value is a valid CSS color string using Laravel >= 10.**
 
 Minimum requirements
 ============
-* PHP 7.4
-* Laravel 6
+* PHP 8.1
+* Laravel 10
 
 Installation
 ============
