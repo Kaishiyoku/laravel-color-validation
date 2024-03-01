@@ -26,6 +26,7 @@ it('validates the "color_hex" rule', function (?string $color, bool $expected) {
     ['rgb(4,200,100)', false],
     ['#37F', true],
     ['#37FFFF', true],
+    ['#37Ffff', true],
     ['fakecolor', false],
 ]);
 
@@ -36,6 +37,7 @@ it('validates the "color_rgb" rule', function (?string $color, bool $expected) {
     ['white', false],
     ['rgba(4,200,100,0', false],
     ['rgb(4,200,100)', true],
+    ['rgb(4, 200, 100)', true],
     ['#37F', false],
     ['#37FFFF', false],
     ['fakecolor', false],
@@ -47,6 +49,7 @@ it('validates the "color_rgba" rule', function (?string $color, bool $expected) 
     [null, false],
     ['white', false],
     ['rgba(4,200,100,0)', true],
+    ['rgba(4, 200, 100, 0)', true],
     ['rgba(4,200,100)', false],
     ['#37F', false],
     ['#37FFFF', false],
@@ -69,6 +72,7 @@ it('validates the "color_hsl" rule', function (?string $color, bool $expected) {
     [null, false],
     ['fakecolor', false],
     ['hsl(120,60%,70%)', true],
+    ['hsl(120, 60%, 70%)', true],
 ]);
 
 it('validates the "color_hsla" rule', function (?string $color, bool $expected) {
