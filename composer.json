@@ -36,7 +36,9 @@
     },
     "require-dev": {
         "orchestra/testbench": "^8.0",
-        "phpunit/phpunit": "^10.5"
+        "phpunit/phpunit": "^10.5",
+        "pestphp/pest": "^2.34",
+        "pestphp/pest-plugin-laravel": "^2.3"
     },
     "suggest": {
     },
@@ -45,6 +47,11 @@
             "providers": [
                 "Kaishiyoku\\Validation\\Color\\ServiceProvider"
             ]
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
         }
     }
 }
