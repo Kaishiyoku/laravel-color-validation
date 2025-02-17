@@ -2,26 +2,32 @@ name: Tests
 
 on:
   push:
-    branches: [ master ]
+    branches:
+      - master
   pull_request:
-    branches: [ master ]
+    branches:
+      - master
 
 jobs:
   laravel-tests:
     runs-on: ${{ matrix.operating-system }}
+
     strategy:
       matrix:
-        operating-system: ['ubuntu-latest']
+        operating-system: [ubuntu-latest]
         php-versions: ['8.1', '8.2', '8.3']
-        phpunit-versions: ['latest']
+        phpunit-versions: ['8.2', '8.3', '8.4', latest]
 
     steps:
-    - uses: shivammathur/setup-php@v2
-      with:
-        php-version: ${{ matrix.php-versions }}
-        tools: phpunit:${{ matrix.phpunit-versions }}
-    - uses: actions/checkout@v2
-    - name: Install Dependencies
-      run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
-    - name: Execute tests (Unit and Feature tests) via PHPUnit
-      run: vendor/bin/pest
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-versions }}
+          tools: phpunit:${{ matrix.phpunit-versions }}
+
+      - uses: actions/checkout@v2
+
+      - name: Install Dependencies
+        run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+
+      - name: Execute tests (Unit and Feature tests) via PHPUnit
+        run: vendor/bin/pest
