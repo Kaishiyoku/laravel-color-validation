@@ -17,9 +17,9 @@
             "role": "Maintainer"
         }
     ],
-    "autoload":{
-        "psr-4":{
-            "Kaishiyoku\\":"src/Kaishiyoku"
+    "autoload": {
+        "psr-4": {
+            "Kaishiyoku\\": "src/Kaishiyoku"
         }
     },
     "autoload-dev": {
@@ -30,18 +30,17 @@
     "minimum-stability": "stable",
     "require": {
         "php": "^8.1",
-        "illuminate/support": "^10.0|^11.0",
-        "illuminate/validation": "^10.0|^11.0",
+        "illuminate/support": "^10.0|^11.0|^12.0",
+        "illuminate/validation": "^10.0|^11.0|^12.0",
         "spatie/regex": "^3.1"
     },
     "require-dev": {
-        "orchestra/testbench": "^8.0",
-        "phpunit/phpunit": "^10.5",
-        "pestphp/pest": "^2.34",
-        "pestphp/pest-plugin-laravel": "^2.3"
+        "orchestra/testbench": "^8.0|^10.0",
+        "phpunit/phpunit": "^10.5|^11.5.3",
+        "pestphp/pest": "^2.34|^3.7",
+        "pestphp/pest-plugin-laravel": "^2.3|^3.1"
     },
-    "suggest": {
-    },
+    "suggest": [],
     "extra": {
         "laravel": {
             "providers": [
