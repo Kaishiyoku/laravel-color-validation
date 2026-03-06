@@ -16,7 +16,7 @@ jobs:
       matrix:
         operating-system: [ubuntu-latest]
         php-versions: ['8.2', '8.3', '8.4', '8.5']
-        phpunit-versions: ['8.2', '8.3', '8.4', '8.5', latest]
+        phpunit-versions: ['10', '11', '12', latest]
 
     steps:
       - uses: shivammathur/setup-php@v2
